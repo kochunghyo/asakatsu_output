@@ -1,0 +1,23 @@
+.form__contents
+  %h2.form__contents__top 
+    おはようございます！
+  %br
+    今日も元気よくアウトプットしましょう！
+    =form_for @output do |f|
+      %br タイトル
+      .form__contents__title
+        = f.text_field :title, placeholder: "本日の朝活のタイトルを記入してください"
+      %br 画像
+      .form__contents__image
+        = f.fields_for :images do |i|
+          =i.file_field :src
+      
+      %br 内容
+      .form__contents__text
+        = f.text_area :text, placeholder: "本日の朝活の内容を記入してください", rows: "10"
+
+      .form__content__submit
+        = f.submit "投稿する", class: "form__content__submit__btn"
+        = link_to '#', class: "form__content__submit__return" do
+          もどる
+      
