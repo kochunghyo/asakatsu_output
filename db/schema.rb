@@ -17,15 +17,16 @@ ActiveRecord::Schema.define(version: 2020_11_16_113019) do
 
   create_table "images", force: :cascade do |t|
     t.string "src"
-    t.bigint "output_id"
+    t.bigint "output_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["output_id"], name: "index_images_on_output_id"
   end
 
   create_table "outputs", force: :cascade do |t|
-    t.string "title"
-    t.string "text"
+    t.string "title", null: false
+    t.string "text", null: false
+    t.bigint "type_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

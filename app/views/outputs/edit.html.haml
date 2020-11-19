@@ -1,19 +1,14 @@
 .form__contents
   %h2.form__contents__top 
-    おはようございます！
-  %br
-    今日も元気よくアウトプットしましょう！
+    投稿を編集する
     = form_for @output do |f|
       %br タイトル
       .form__contents__title
         = f.text_field :title, placeholder: "本日の朝活のタイトルを記入してください"
-      %br アウトプットの種類
-      .form__contents__type
-        = f.collection_select :type_id, Type.all, :id, :name, {prompt: "--"},{class: "form__contents__type__list"}
       %br 画像
       .form__contents__image
         = f.fields_for :images do |i|
-          =i.file_field :src
+          = i.file_field :src
       
       %br 内容
       .form__contents__text
@@ -23,4 +18,3 @@
         = f.submit "投稿する", class: "form__content__submit__btn"
         = link_to root_path, class: "form__content__submit__return" do
           もどる
-      
