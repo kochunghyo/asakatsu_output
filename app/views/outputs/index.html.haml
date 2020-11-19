@@ -1,4 +1,7 @@
 %h1
   アウトプット一覧
-= link_to 'アウトプットする', new_output_path, class: "output__btn"
-    
+= link_to '投稿する', new_output_path, class: "output__btn" 
+  
+-#   投稿を削除する
+-# = link_to '投稿を削除する', output_path(@output.id), method: :delete, class: "output__delete__btn" 
+-# = link_to '編集する', output_path(@output.id), method: :get, class: "output__edit__btn"
