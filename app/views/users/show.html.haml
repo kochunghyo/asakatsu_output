@@ -1,0 +1,15 @@
+.myoutput__lists
+  %p 
+  = @nickname 
+  さんのアウトプット一覧
+  - @outputs.each do |output|
+    .myoutput__lists__title
+      = output.title
+    .myoutput__lists__type
+      = output.type.name
+    .myoutput__lists__image
+      = image_tag output.images.first.src.url, class: "img"
+    .myoutput__lists__text
+      = output.text
+
+= link_to "トップページに戻る", root_path
