@@ -1,14 +1,18 @@
 class OutputsController < ApplicationController
   
-  before_action :set_output, only: [:edit, :update, :show, :destroy]
+  before_action :set_output, except: [:index, :new, :create]
 
   def index
     @outputs = Output.includes(:images).order("created_at DESC")
   end
 
   def new
-    @output = Output.new
-    @output.images.build
+    if user_signed_in?
+      @output = Output.new
+      @output.images.build
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def create
@@ -21,14 +25,20 @@ class OutputsController < ApplicationController
     end
   end
 
+  def show
+    @comment = Comment.new
+    @comments = @output.comments.includes(:user)
+  end
+
   def edit
   end
 
   def update
-    @output.update(output_params)
-  end
-
-  def show
+    if @output.update(output_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -39,10 +49,11 @@ class OutputsController < ApplicationController
   private
     
   def output_params
-    params.require(:output).permit(:title, :text, :type_id, images_attributes: [:src, :_destroy, :id])
+    params.require(:output).permit(:title, :text, :type_id, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
   def set_output
-    @output = Output.find(1)
+    @output = Output.find(params[:id])
   end
+
 end

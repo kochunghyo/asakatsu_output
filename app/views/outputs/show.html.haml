@@ -2,7 +2,7 @@
   .contents__main 
     .contents__main__box
       %h2.contents__main__box__name
-      = @output.title
+        = @output.title
       .contents__main__box__image
         %ul.contents__main__box__image__list
           - @output.images.each do |image|
@@ -11,7 +11,29 @@
       
       .contents__main__box__text
         = @output.text
+      .contents__main__box__outputday
+        = @output.created_at.in_time_zone('Tokyo').strftime("%Y/%m/%d %H:%M:%S")
 
+-if user_signed_in?
+  .contents__main__comment
+    = form_with(model: [@output, @comment], local: true) do |form|
+      = form.text_area :text, placeholder: "コメントする", rows: "2"
+      = form.submit "コメントする"
+- else
+  %strong
+    %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+
+  .contents__comment__lists
+    %h2 コメント一覧
+    .contents__comment__lists__list
+    - if @comments
+      - @comments.each do |comment|
+        .contents__comment__lists__list__name
+          = link_to comment.user.nickname, "/users/#{comment.user_id}"
+        .contents__comment__lists__list__text
+          = comment.text
+
+  -if user_signed_in? && current_user.id == @output.user_id
     .contents__main__fix
       .contents__main__fix__edit
         = link_to edit_output_path(@output.id), class: "contents__main__fix__edit__edit-btn" do
