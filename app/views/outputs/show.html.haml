@@ -23,22 +23,22 @@
   %strong
     %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
 
-  .contents__comment__lists
-    %h2 コメント一覧
-    .contents__comment__lists__list
-    - if @comments
-      - @comments.each do |comment|
-        .contents__comment__lists__list__name
-          = link_to comment.user.nickname, "/users/#{comment.user_id}"
-        .contents__comment__lists__list__text
-          = comment.text
+.contents__comment__lists
+  %h2 コメント一覧
+  .contents__comment__lists__list
+  - if @comments
+    - @comments.each do |comment|
+      .contents__comment__lists__list__name
+        = link_to comment.user.nickname, "/users/#{comment.user_id}"
+      .contents__comment__lists__list__text
+        = comment.text
 
-  -if user_signed_in? && current_user.id == @output.user_id
-    .contents__main__fix
-      .contents__main__fix__edit
-        = link_to edit_output_path(@output.id), class: "contents__main__fix__edit__edit-btn" do
-          投稿の編集
-        %p.contents__main__fix__center
-          or
-        = link_to output_path(@output.id), method: :delete, class: "contents__main__fix__delete-btn" do
-          投稿を削除
+-if user_signed_in? && current_user.id == @output.user_id
+  .contents__main__fix
+    .contents__main__fix__edit
+      = link_to edit_output_path(@output.id), class: "contents__main__fix__edit__edit-btn" do
+        投稿の編集
+      %p.contents__main__fix__center
+        or
+      = link_to output_path(@output.id), method: :delete, class: "contents__main__fix__delete-btn" do
+        投稿を削除
