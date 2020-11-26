@@ -1,6 +1,6 @@
 class OutputsController < ApplicationController
   
-  before_action :set_output, except: [:index, :new, :create]
+  before_action :set_output, only: [:show, :edit, :update, :destroy]
 
   def index
     @outputs = Output.includes(:images).order("created_at DESC")
@@ -45,6 +45,14 @@ class OutputsController < ApplicationController
     @output.destroy
   end
 
+  def like
+    like = Like.find_by(output_id: params[:id], user_id: current_user.id)
+    if like == nil
+      Like.create(output_id: params[:id], user_id: current_user.id)
+    else
+      like.destroy
+    end
+  end
 
   private
     

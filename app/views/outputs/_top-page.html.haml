@@ -1,0 +1,114 @@
+.body
+  .body__head
+    仕事や家事・人間関係で『つらい...』『疲れた...』という方へ
+  .body__head__headline
+    ちょっとだけ私たちと一緒に朝散歩頑張ってみませんか？
+
+  .body__lead
+    .body__lead__sentence
+      もし、あなたが
+    %ul.body__lead__list
+      %li  
+        ✅仕事や家事で、疲れ果てている
+      %li
+        ✅日々、ストレスが溜まり、睡眠不足が続いている
+      %li
+        ✅孤独で寂しい
+    .body__lead__message
+      これらの悩みに一つでも、当てはまるのでしたら、
+      %br
+      このアプリはあなたのためのです。
+
+  .body__promise
+    .body__promise__sentence
+      このアプリを使うことで、
+    %ul.body__promise__list
+      %li
+        ✅朝活が楽しくなり、午前中から意欲的になり、家事・仕事のパフォーマンスが上がります。
+      %li
+        ✅規則正しい生活を取り戻し、睡眠の質を高めることができます。
+      %li
+        ✅朝活を一緒にする仲間ができて、継続することの楽しさを味わえます。
+  
+  .body__features
+    .body__features__head
+      MOA（MorningOutputApplication)の特徴
+    %ul.body__features__lists
+      %li.body__features__lists__list
+        .body__features__lists__list__img
+          .body__features__lists__list__img__number 1
+          = image_tag("post.jpg", alt: "アウトプット", class: "img")
+        .body__features__lists__list__title
+          アウトプット型朝活アプリ
+        .body__features__lists__list__text
+          朝散歩を中心に朝活をアウトプットすることで、日々の積み上げを記録することが出来ます。
+        
+      %li.body__features__lists__list
+        .body__features__lists__list__img
+          .body__features__lists__list__img__number 2
+          = image_tag("girls.jpg", alt: "仲間", class: "img")
+        .body__features__lists__list__title
+          仲間と刺激し合う
+        .body__features__lists__list__text
+          一人でやると、人はどうしても挫折しがちです。
+          %p このアプリでは、朝活の仲間を作り、「いいね!」やコメントで支え合い、継続することが出来ます。
+    
+      %li.body__features__lists__list
+        .body__features__lists__list__img
+          .body__features__lists__list__img__number 3
+          = image_tag("wakeup.jpg", alt: "習慣", class: "img")
+        .body__features__lists__list__title
+          朝4時から朝10時まで
+        .body__features__lists__list__text
+          アウトプットは朝4時から朝10時までなので、毎日時間内に活動を完了させる習慣を身に着けることができます。
+
+  .body__customer-voice
+    .body__customer-voice__head
+      利用者の方から、嬉しいお言葉をいただきました!!
+    %ul.body__customer-voice__lists
+      %li.body__customer-voice__lists__list
+        .body__customer-voice__lists__list__img
+        = image_tag("女性.jpg", alt: "女性", class: "img")
+        .body__customer-voice__lists__list__name
+          A美さん（32歳/女性/主婦)
+        .body__customer-voice__lists__list__text
+          最近、PTAの役職や子育てのことで、睡眠障害を起こし、すごく心がどんよりしていました。
+          %p 夫が仕事に出ている間、トイレで何時間も泣き続けることもありました。
+          %p それでも、このアプリを使い出してから、自分の体調と心を毎日リセットできるようになって、夫にも『明るくなったね』と言われるようになりました。
+
+      %li.body__customer-voice__lists__list
+        .body__customer-voice__lists__list__img
+        = image_tag("商社マン.jpg", alt: "商社マン", class: "img")
+        .body__customer-voice__lists__list__name
+          K一郎さん（27歳/男性/総合商社勤務)
+        .body__customer-voice__lists__list__text
+          昨年に会社から海外事業のプロジェクトリーダーを任せてもらいました。その分、プレッシャーも大きく、毎日が不安で押しつぶされそうでした。
+          %p でも、このアプリを使い始めてから、毎日朝を迎えるのが楽しくなり、メンバーにも明るく接しました。
+          そのおかげか、メンバーも意欲的にプロジェクトに取り組み、なんと先日最も、会社に貢献したチームに贈られる「社長賞」を受賞しました。
+
+      %li.body__customer-voice__lists__list
+        .body__customer-voice__lists__list__img
+        = image_tag("学生.jpg", alt: "学生", class: "img")
+        .body__customer-voice__lists__list__name
+          E太さん（18歳/男性/大学生)
+        .body__customer-voice__lists__list__text
+          両親には、『勉強もサークルもうまくいっているよ』と嘘をついていました。
+          本当は、友達もゼロで部屋に引きこもり、寝込んでいました。
+          %p 自分でも『心の病気なのかな？』と思いましたが、病院に行く気力もなく、その時、スマホをなんとなく触っていると、このアプリを見つけました。
+          すると最初は朝散歩など面倒くさかったですが、アプリ上で友達もできて、「いいね！」を貰うたびに、色んなことに燃え始め、また勉強を再開しました。
+          
+  .body__outputs
+    .body__outputs__lists
+      .body__outputs__lists__title
+        みんなの朝活一覧
+      .body__outputs__lists__list
+        - @outputs.each do |output|
+          %ul.body__outputs__lists__list__link
+            = link_to output_path(output.id), class: "body__outputs__lists__list__link" do
+              この投稿の詳細はこちら
+              %li.body__outputs__lists__list__link__images
+                = image_tag output.images.first.src.url, class: "img"
+              %li.body__outputs__lists__list__link__outputter
+                投稿者
+                = link_to "#{output.user.nickname}", user_path(output.user.id)
+                
