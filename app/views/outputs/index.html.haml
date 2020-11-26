@@ -1,26 +1,5 @@
-
-%ul ログイン確認
-- if user_signed_in?
-  %li
-  = link_to "マイページ", "/users/#{current_user.id}"
-  %li
-  = link_to '投稿する', new_output_path, class: "output__btn" 
-  %li
-  = link_to "ログアウト", destroy_user_session_path, method: :delete
-
-- else
-  %li
-    = link_to "ログイン", new_user_session_path
-  %li
-    = link_to "新規会員登録", new_user_registration_path
-
-
-.output__lists
-  .output__lists__list
-    - @outputs.each do |output|
-      %ul.output__lists__list__group
-        = link_to "この投稿の詳細はこちら", output_path(output.id), class: "output__lists__list__group__link" 
-        %li.output__lists__list__group__images
-          = image_tag output.images.first.src.url, class: "img"
-        %li.output__lists__list__group__outputter
-          = link_to "#{output.user.nickname}", user_path(output.user.id)
+.wrapper
+  = render "header"
+  = render "top-page"
+  = render "appbanner"
+  = render "footer"

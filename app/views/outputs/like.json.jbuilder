@@ -1,0 +1,1 @@
+json.count Like.where(output_id: params[:id]).count

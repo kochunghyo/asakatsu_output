@@ -19,6 +19,13 @@
     = form_with(model: [@output, @comment], local: true) do |form|
       = form.text_area :text, placeholder: "コメントする", rows: "2"
       = form.submit "コメントする"
+    %button#like-btn{action: like_output_url(params[:id])}
+      - if Like.find_by(user_id: current_user.id)
+        %i.like-icon.fas.fa-thumbs-up いいね!済
+      - else
+        %i.like-icon.far.fa-thumbs-up いいね！
+      %span.like-num
+        = Like.where(output_id: params[:id]).count
 - else
   %strong
     %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
@@ -42,3 +49,13 @@
         or
       = link_to output_path(@output.id), method: :delete, class: "contents__main__fix__delete-btn" do
         投稿を削除
+:javascript
+  $(()=>{
+    $(document).on('click','#like-btn',()=>{
+      $.get({url:$('#like-btn').attr('action')}).done((res)=>{
+        $('.like-num').text(res.count)
+        $('.like-icon').toggleClass('fas')
+                       .toggleClass('far')
+      })
+    })
+  })

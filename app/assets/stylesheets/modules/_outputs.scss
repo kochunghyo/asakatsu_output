@@ -1,0 +1,239 @@
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  padding: 60px 60px;
+  background-image: image-url("shutterstock_1606615294.jpg");
+  background-size: cover;
+  background-position: center;
+  &__main {
+    width: 100%;
+    height: 200px;
+    padding: 130px 0 0;
+    &__list {
+      font-size: 18px;
+      font-weight: bold;
+      &__confirm {
+        display: flex;
+        justify-content: center;
+        &__mypage {
+          padding: 0 0 0 60px;
+        }
+        &__output {
+          padding: 0 0 0 60px;
+        }
+        &__logout {
+          padding: 0 0 0 60px;
+        }
+        &__login {
+          padding: 0 0 0 60px;
+        }
+        &__registration {
+          padding: 0 0 0 60px;
+        }
+      }
+    }
+  }
+  &__btn {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.body {
+  background-color: #f8f8f8;
+  &__head {
+    font-size: 20px;
+    padding: 30px 0 30px 0;
+    text-align: center;
+    &__headline {
+      font-size: 30px;
+      font-weight: bold;
+      text-align: center;
+      color: white;
+      background-color:green;
+    }
+  }
+  &__lead {
+    padding: 30px 0;
+    text-align: center;
+    &__sentence {
+      font-size: 20px;
+    }
+    &__list {
+      font-size: 22px;
+      padding: 20px 20px;
+    }
+    &__message {
+      font-size: 18px;
+    }
+  }
+  &__promise {
+    text-align: center;
+    &__sentence {
+     font-size: 20px;
+    }
+    &__list {
+      font-size: 22px;
+      padding: 20px 20px;
+    }
+  }
+  &__features {
+    padding-bottom: 30px;
+    &__head {
+      font-size: 26px;
+      font-weight: bold;
+      padding: 60px 0;
+      text-align: center;
+    }
+    &__lists {
+      display: flex;
+      margin: 0 auto;
+      max-width: 1040px;
+      width: 100%;
+      &__list {
+        width: 30%;
+        margin: 16px 16px 0 16px;
+        &__img {
+          position: relative;
+          margin-bottom: 20px;
+          &__number {
+            position: absolute;
+            display: inline-block;
+            top: 0;
+            left: 0;
+            font-size: 30px;
+            padding: 10px 20px;
+            margin: 0 5px 0 0;
+            border-radius: 4%;
+            text-align: center;
+            color: white;
+            background-color: olive;
+          }
+        }
+        &__title {
+          font-size: 22px;
+          font-weight: bold;
+          line-height: 50px;
+          margin: 0 0 0 2px;
+          text-align: center;
+        }
+        &__text {
+          font-size: 18px;
+          line-height: 1.5;
+          margin: 16px 0 0;
+          text-align: left;
+
+        }
+      } 
+   }
+  }
+  &__customer-voice {
+    padding-bottom: 30px;
+    &__head {
+      font-size: 26px;
+      font-weight: bold;
+      text-align: center;
+      padding: 60px 0;
+    }
+    &__lists {
+      display: flex;
+      margin: 0 auto;
+      max-width: 1040px;
+      width: 100%;
+      &__list {
+        width: 30%;
+        margin: 16px 16px 0 16px;
+        background-color: ivory;
+        &__name {
+          font-size: 18px;
+          text-align: center;
+          font-weight: bold; 
+          padding-bottom: 20px;
+        }
+        &__text {
+          font-size: 18px;
+          text-align: left;
+        }
+      }
+    }
+  }
+  &__outputs {
+    padding: 60px 0 0;
+    height: 100%;
+    &__lists {
+      width: 780px;
+      margin: 30px auto 0 ;
+      &__title {
+        text-align: center;
+        font-size: 26px;
+        font-weight: bold;
+        line-height: 1.4;
+      }
+      &__list {
+        display: flex;
+        justify-content: space-around;
+        padding: 60px 0;
+        &__link {
+          width: 220px;
+          text-decoration: none;
+          color: black;
+          font-size: 18px;
+          &__images {
+            width: 220px;
+            height: 150px;
+            position: relative;
+            margin: 0;
+            z-index: auto;
+            overflow: hidden;
+          }
+          &__outputter {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+}
+.img {
+  width: 100%;
+  vertical-align: bottom;
+}
+
+.appbanner {
+  background-image: image-url("road-220058_1280.jpeg");
+  background-size: cover;
+  background-position: center;
+  padding: 100px 40px;
+  &__internal {
+    text-align: center;
+    color: white;
+    &__message {
+      font-size: 22px;
+      font-weight: bold;
+      text-shadow:
+        0 0 5px rgba(0,0,0,0.4);
+    }
+    &__text {
+      font-size: 30px;
+      text-shadow:
+        0 0 5px rgba(0,0,0,0.4);    
+    }
+    &__icon {
+      width: 100%;
+      height: 120px;
+      display: flex;
+      position: relative;
+      justify-content: center;
+      &__abtn {
+        width: 160px;
+        height: 90px;
+      }
+      &__gbtn {
+        width: 190px;
+        height: 90px;
+      }
+    }
+  }
+}
