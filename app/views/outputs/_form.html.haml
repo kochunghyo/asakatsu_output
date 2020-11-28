@@ -1,26 +1,37 @@
 .form__contents
-  %h2.form__contents__top 
+  .form__contents__top 
     おはようございます！
-  %br
-    今日も元気よくアウトプットしましょう！
+    %p 今日も元気よくアウトプットしましょう！
+  .form__contents__list
     = form_for @output do |f|
-      %br タイトル
-      .form__contents__title
-        = f.text_field :title, placeholder: "本日の朝活のタイトルを記入してください"
-      %br アウトプットの種類
-      .form__contents__type
-        = f.collection_select :type_id, Type.all, :id, :name, {prompt: "--"},{class: "form__contents__type__list"}
-      %br 画像
-      .form__contents__image
+      .form__contents__list__title
+        %label.title タイトル
+        %span.essential
+          必須
+        = f.text_field :title, placeholder: "本日の朝活のタイトルを記入してください。", class: "form__field"
+      .form__contents__list__type
+        %label.title 朝活の種類
+        %span.essential
+          必須
+        = f.collection_select :type_id, Type.all, :id, :name, {prompt: "--"},{class: "form__field"}
+      .form__contents__list__image
+        .form__contents__list__image__box
+          .form__contents__list__image__box__title
+            %label.title 画像
+            %span.essential
+              必須
+          .form__contents__list__image__box__text
+            こちらに画像を添付してください。
         = f.fields_for :images do |i|
           =i.file_field :src
-      
-      %br 内容
-      .form__contents__text
-        = f.text_area :text, placeholder: "本日の朝活の内容を記入してください", rows: "10"
 
-      .form__content__submit
-        = f.submit "投稿する", class: "form__content__submit__btn"
-        = link_to root_path, class: "form__content__submit__return" do
-          もどる
+      .form__contents__list__text
+        %label.title 投稿内容
+        %span.essential
+          必須
+        = f.text_area :text, placeholder: "本日の朝活の内容を記入してください。", rows: "10", class: "form__field"
+
+      .form__contents__list__submit
+        = f.submit "投稿する", class: "form__contents__list__submit__btn"
+        = link_to "もどる", root_path, class: "form__contents__list__submit__return" 
       
