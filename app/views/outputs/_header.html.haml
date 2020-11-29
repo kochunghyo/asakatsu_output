@@ -4,12 +4,13 @@
       %ul.header__main__list__confirm
         - if user_signed_in?
           %li.header__main__list__confirm__mypage
-          = link_to "マイページはこちら", "/users/#{current_user.id}", class: "header__btn" 
+            = link_to "マイページはこちら", "/users/#{current_user.id}", class: "header__btn" 
           %li.header__main__list__confirm__output
-          = link_to '投稿する', new_output_path, class: "header__btn"
+            = link_to '投稿する', new_output_path, class: "header__btn"
           %li.header__main__list__confirm__logout
-          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__btn"
-
+            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__btn"
+          %li.header__main__list__confirm__user
+            = "#{current_user.nickname}さんでログイン中"
         - else
           %li.header__main__list__confirm__login
             = link_to "ログインはこちら", new_user_session_path, class: "header__btn" 

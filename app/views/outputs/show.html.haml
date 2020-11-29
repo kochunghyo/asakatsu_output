@@ -1,61 +1,74 @@
-.contents
-  .contents__main 
-    .contents__main__box
-      %h2.contents__main__box__name
+.wrapper
+  .header
+    .header__main
+  .contents
+    .contents__box 
+      .contents__box__name  
+        タイトル:
         = @output.title
-      .contents__main__box__image
-        %ul.contents__main__box__image__list
-          - @output.images.each do |image|
-            %li.contents__main__box__image__list__img
-              = image_tag image.src.url
+      .contents__box__type
+        朝活の種類:
+        = @output.type.name
+      .contents__box__image
+        %ul.contents__box__image__list
+          %li.contents__box__image__list__top
+            = image_tag @output.images.first.src.url
+              %ul.contents__box__image__list__top__other
+                - @output.images.each do |image|
+                %li.contents__box__image__list__top__other__img
+                  = image_tag image.src.url, class: "img"
       
-      .contents__main__box__text
+      .contents__box__text
         = @output.text
-      .contents__main__box__outputday
+      .contents__box__output-time
+        投稿時間:
         = @output.created_at.in_time_zone('Tokyo').strftime("%Y/%m/%d %H:%M:%S")
 
--if user_signed_in?
-  .contents__main__comment
-    = form_with(model: [@output, @comment], local: true) do |form|
-      = form.text_area :text, placeholder: "コメントする", rows: "2"
-      = form.submit "コメントする"
-    %button#like-btn{action: like_output_url(params[:id])}
-      - if Like.find_by(user_id: current_user.id)
-        %i.like-icon.fas.fa-thumbs-up いいね!済
-      - else
-        %i.like-icon.far.fa-thumbs-up いいね！
-      %span.like-num
-        = Like.where(output_id: params[:id]).count
-- else
-  %strong
-    %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+    -if user_signed_in?
+      .contents__box__comment
+        = form_with(model: [@output, @comment], local: true) do |form|
+          .contents__box__comment-do
+            = form.text_area :text, placeholder: "コメントする", rows: "5", class: "contents__box__comment-do"
+          .contents__box__comment__submit
+            = form.submit "コメントする", class: "contents__box__comment__submit"
 
-.contents__comment__lists
-  %h2 コメント一覧
-  .contents__comment__lists__list
-  - if @comments
-    - @comments.each do |comment|
-      .contents__comment__lists__list__name
-        = link_to comment.user.nickname, "/users/#{comment.user_id}"
-      .contents__comment__lists__list__text
-        = comment.text
+      %button#like-btn{action: like_output_url(params[:id])}
+        - if Like.find_by(user_id: current_user.id)
+          %i.like-icon.fas.fa-thumbs-up いいね!済
+        - else
+          %i.like-icon.far.fa-thumbs-up いいね！
+        %span.like-num
+          = Like.where(output_id: params[:id]).count
+    - else
+      %strong
+        %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
 
--if user_signed_in? && current_user.id == @output.user_id
-  .contents__main__fix
-    .contents__main__fix__edit
-      = link_to edit_output_path(@output.id), class: "contents__main__fix__edit__edit-btn" do
-        投稿の編集
-      %p.contents__main__fix__center
-        or
-      = link_to output_path(@output.id), method: :delete, class: "contents__main__fix__delete-btn" do
-        投稿を削除
-:javascript
-  $(()=>{
-    $(document).on('click','#like-btn',()=>{
-      $.get({url:$('#like-btn').attr('action')}).done((res)=>{
-        $('.like-num').text(res.count)
-        $('.like-icon').toggleClass('fas')
-                       .toggleClass('far')
+    .contents__box__comment-head
+      コメント一覧
+    .contents__box__comment__list
+    - if @comments
+      - @comments.each do |comment|
+        .contents__box__comment__list__name
+          = link_to comment.user.nickname, "/users/#{comment.user_id}"
+        .contents__box__comment__list__text
+          = comment.text
+
+    -if user_signed_in? && current_user.id == @output.user_id
+      .contents__box__fix
+        .contents__box__fix__edit
+          = link_to edit_output_path(@output.id), class: "contents__box__fix__edit-btn" do
+            投稿を編集する
+        .contents__box__fix__center
+          = link_to output_path(@output.id), method: :delete, class: "contents__box__fix__delete-btn" do
+            投稿を削除する
+    :javascript
+      $(()=>{
+        $(document).on('click','#like-btn',()=>{
+          $.get({url:$('#like-btn').attr('action')}).done((res)=>{
+            $('.like-num').text(res.count)
+            $('.like-icon').toggleClass('fas')
+                          .toggleClass('far')
+          })
+        })
       })
-    })
-  })
+  = render "footer"
