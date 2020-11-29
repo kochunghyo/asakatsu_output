@@ -18,19 +18,25 @@
         display: flex;
         justify-content: center;
         &__mypage {
-          padding: 0 0 0 60px;
+          padding: 30px;
         }
         &__output {
-          padding: 0 0 0 60px;
+          padding: 30px;
         }
         &__logout {
-          padding: 0 0 0 60px;
+          padding: 30px;
+        }
+        &__user {
+          font-size: 16px;
+          padding: 30px;
+          text-decoration: underline;
+          color: white;
         }
         &__login {
-          padding: 0 0 0 60px;
+          padding: 60px;
         }
         &__registration {
-          padding: 0 0 0 60px;
+          padding: 60px;
         }
       }
     }
