@@ -1,7 +1,6 @@
 class OutputsController < ApplicationController
   
   before_action :set_output, only: [:show, :edit, :update, :destroy]
-
   def index
     @outputs = Output.includes(:images).order("created_at DESC")
   end

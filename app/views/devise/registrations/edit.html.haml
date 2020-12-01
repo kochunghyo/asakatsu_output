@@ -1,36 +1,128 @@
-%h2
-  Edit #{resource_name.to_s.humanize}
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    %div
-      Currently waiting confirmation for: #{resource.unconfirmed_email}
-  .field
-    = f.label :password
-    %i (leave blank if you don't want to change it)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-    - if @minimum_password_length
-      %br/
-      %em
-        = @minimum_password_length
-        characters minimum
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    = f.label :current_password
-    %i (we need your current password to confirm your changes)
-    %br/
-    = f.password_field :current_password, autocomplete: "current-password"
-  .actions
-    = f.submit "Update"
-%h3 Cancel my account
-%p
-  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-= link_to "Back", :back
+.wrapper
+  = render "header"
+  .account-page__content
+    .account-page__content__head
+      会員情報編集画面
+    .account-page__content__form
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+        .account-page__content__form__label
+          = f.label "ニックネーム"
+          %span.essential
+            必須
+        .account-page__content__form__input
+          = f.text_field :nickname, placeholder: '例）朝活くん', class: "account-page__content__form__input-field"
+
+        .account-page__content__form__label
+          = f.label "プロフィール画像"
+        .account-page__content__form__input
+          = f.file_field :face_image
+
+        .account-page__content__form__label
+          = f.label "メールアドレス"
+          %span.essential
+            必須
+        .account-page__content__form__input
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'PC用・携帯用どちらでも可', class: "account-page__content__form__input-field"
+
+        .identification
+          本人確認
+        %p.account-page__content__form__message
+          安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+        
+        .account-page__content__form__label
+          = f.label 'お名前(全角)'
+          %span.essential
+            必須
+        .account-page__content__form__input       
+          = f.text_field :first_name, placeholder: '佐藤', class: "account-page__content__form__input-field__name"
+          = f.text_field :last_name, placeholder: '太郎', class: "account-page__content__form__input-field__name"
+        
+        .account-page__content__form__label
+          = f.label 'お名前カナ(全角)'
+          %span.essential
+            必須
+        .account-page__content__form__input
+          = f.text_field :first_name_kana, placeholder: 'サトウ', class: "account-page__content__form__input-field__name"
+          = f.text_field :last_name_kana, placeholder: 'タロウ', class: "account-page__content__form__input-field__name" 
+        
+        
+        .account-page__content__form__label
+          = f.label '生年月日'
+          %span.essential
+            必須
+        .account-page__content__form__input
+          = f.date_select :birthday, {start_year: 2020, end_year: 1900, prompt: "--"} , {class: "account-page__content__form__input-field__birthday"}
+
+        %p.account-page__content__form__text
+          ※本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+          .account-page__content__form__submit
+            = f.submit '更新する', class: "account-page__content__form__submit"
+  = render "footer"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-#   .field
+-#     = f.label :email
+-#     %br/
+-#     = f.email_field :email, autofocus: true, autocomplete: "email"
+-#   - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+-#     %div
+-#       Currently waiting confirmation for: #{resource.unconfirmed_email}
+-#   .field
+-#     = f.label :password
+-#     %i (leave blank if you don't want to change it)
+-#     %br/
+-#     = f.password_field :password, autocomplete: "new-password"
+-#     - if @minimum_password_length
+-#       %br/
+-#       %em
+-#         = @minimum_password_length
+-#         characters minimum
+-#   .field
+-#     = f.label :password_confirmation
+-#     %br/
+-#     = f.password_field :password_confirmation, autocomplete: "new-password"
+-#   .field
+-#     = f.label :current_password
+-#     %i (we need your current password to confirm your changes)
+-#     %br/
+-#     = f.password_field :current_password, autocomplete: "current-password"
+-#   .actions
+-#     = f.submit "更新する"
+-# %h3 Cancel my account
+-# %p
+-#   Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
+-# = link_to "Back", :back

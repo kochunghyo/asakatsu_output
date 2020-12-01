@@ -4,10 +4,10 @@
   .contents
     .contents__box 
       .contents__box__name  
-        タイトル:
+        %span.label タイトル:
         = @output.title
       .contents__box__type
-        朝活の種類:
+        %span.label 朝活の種類:
         = @output.type.name
       .contents__box__image
         %ul.contents__box__image__list
@@ -21,8 +21,10 @@
       .contents__box__text
         = @output.text
       .contents__box__output-time
-        投稿時間:
+        %span.label 投稿時間:
         = @output.created_at.in_time_zone('Tokyo').strftime("%Y/%m/%d %H:%M:%S")
+      .contents__box__return
+        = link_to "もどる", root_path
 
     -if user_signed_in?
       .contents__box__comment

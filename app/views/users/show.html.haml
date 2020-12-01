@@ -1,15 +1,29 @@
-.myoutput__lists
-  %p 
-  = @nickname 
-  さんのアウトプット一覧
-  - @outputs.each do |output|
-    .myoutput__lists__title
-      = output.title
-    .myoutput__lists__type
-      = output.type.name
-    .myoutput__lists__image
-      = image_tag output.images.first.src.url, class: "img"
-    .myoutput__lists__text
-      = output.text
-
-= link_to "トップページに戻る", root_path
+.wrapper
+  = render "header"
+  .myoutput
+    .myoutput__outputter
+      .myoutput__outputter__face-image
+        = image_tag @user.face_image.to_s, class: "img"
+      .myoutput__outputter__name
+        = @user.nickname
+        さんのアウトプット一覧
+    .myoutput__contents
+      .myoutput__contents__list
+      - @outputs.each do |output|
+        .myoutput__contents__list__title
+          %span.label タイトル
+          = output.title
+        .myoutput__contents__list__type
+          %span.label 朝活の種類
+          = output.type.name
+        .myoutput__contents__list__image
+          = image_tag output.images.first.src.url, class: "img"
+        .myoutput__contents__list__text
+          = output.text
+          
+        -if user_signed_in? && current_user.id == output.user_id
+          .myoutput__contents__fix
+            .myoutput__contents__fix__edit
+            = link_to edit_user_registration_path, class: "myoutput__contents__fix__edit-btn" do
+              会員登録情報を修正する
+  = render "footer"

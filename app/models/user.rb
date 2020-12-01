@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :outputs
   has_many :comments
   has_many :likes
+  mount_uploader :face_image, ImageUploader
 
   validates :nickname, presence: true
   validates :first_name, :last_name, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: "は全角で入力してください" }
