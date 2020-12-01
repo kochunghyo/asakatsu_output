@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { 
+    registrations: 'users/registrations'
+  }
   root to: 'outputs#index'
   resources :outputs do
     resources :comments, only: :create
@@ -7,5 +9,5 @@ Rails.application.routes.draw do
       get 'like'
     end
   end
-  resources :users, only: :show
+  resources :users, only: [:show]
 end

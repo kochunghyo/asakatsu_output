@@ -13,6 +13,11 @@
           = f.text_field :nickname, placeholder: '例）朝活くん', class: "account-page__content__form__input-field"
 
         .account-page__content__form__label
+          = f.label "プロフィール画像"
+        .account-page__content__form__input
+          = f.file_field :face_image
+
+        .account-page__content__form__label
           = f.label "メールアドレス"
           %span.essential
             必須
