@@ -13,10 +13,10 @@
         %ul.contents__box__image__list
           %li.contents__box__image__list__top
             = image_tag @output.images.first.src.url
-              %ul.contents__box__image__list__top__other
-                - @output.images.each do |image|
-                %li.contents__box__image__list__top__other__img
-                  = image_tag image.src.url, class: "img"
+          %li.contents__box__image__list__other
+            - @output.images.each do |image|
+              .contents__box__image__list__other__img
+                = image_tag image.src.url, class: "contents__box__image__list__other__img"
       
       .contents__box__text
         = @output.text
