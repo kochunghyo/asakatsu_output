@@ -2,7 +2,7 @@ class OutputsController < ApplicationController
   
   before_action :set_output, only: [:show, :edit, :update, :destroy]
   def index
-    @outputs = Output.includes(:images).order("created_at DESC")
+    @outputs = Output.includes(:images).order("created_at DESC").limit(5)
   end
 
   def new
@@ -42,6 +42,7 @@ class OutputsController < ApplicationController
 
   def destroy
     @output.destroy
+    redirect_to root_path
   end
 
   def like
