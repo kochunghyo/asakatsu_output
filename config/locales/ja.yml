@@ -1,6 +1,14 @@
 ---
 ja:
   activerecord:
+    models:
+      output:アウトプット
+    attributes:
+      output:
+        title: タイトル
+        text: 投稿内容
+        images: 画像
+        type_id: 朝活の種類
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

@@ -5,6 +5,7 @@
   .form__contents__list
     = form_for @output do |f|
       .form__contents__list__title
+        = render 'layouts/error_messages', model: f.object
         %label.title タイトル
         %span.essential
           必須

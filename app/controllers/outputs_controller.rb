@@ -15,12 +15,16 @@ class OutputsController < ApplicationController
   end
 
   def create
-    @output = Output.new(output_params)
-    if @output.save
-      redirect_to root_path
+    unless(Time.now.hour < 4 || Time.now.hour >= 10)
+      @output = Output.new(output_params)
+      if @output.save
+        redirect_to root_path, notice: '投稿が完了しました。'
+      else
+        @output.images.build
+        render :new
+      end
     else
-      @output.images.build
-      render :new
+      redirect_to root_path, notice: "投稿は朝4時から朝10時までです。"
     end
   end
 
@@ -34,7 +38,7 @@ class OutputsController < ApplicationController
 
   def update
     if @output.update(output_params)
-      redirect_to root_path
+      redirect_to root_path, notice: "投稿を編集しました"
     else
       render :edit
     end
@@ -42,7 +46,7 @@ class OutputsController < ApplicationController
 
   def destroy
     @output.destroy
-    redirect_to root_path
+    redirect_to root_path, notice: "投稿を削除しました"
   end
 
   def like

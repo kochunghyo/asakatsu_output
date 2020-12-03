@@ -11,6 +11,12 @@
             必須
         .account-page__content__form__input
           = f.text_field :nickname, placeholder: '例）朝活くん', class: "account-page__content__form__input-field"
+          - if @user.errors.any?
+            .errors_explanation
+              %ul
+                - @user.errors.full_messages_for(:nickname).each do |message|
+                  %li{style: "color:red"}
+                    = message
 
         .account-page__content__form__label
           = f.label "プロフィール画像"
@@ -23,20 +29,37 @@
             必須
         .account-page__content__form__input
           = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'PC用・携帯用どちらでも可', class: "account-page__content__form__input-field"
-
+          - if @user.errors.any?
+            .errors_explanation
+              %ul
+                - @user.errors.full_messages_for(:email).each do |message|
+                  %li{style: "color:red"}
+                    = message
         .account-page__content__form__label
           = f.label "パスワード" 
           %span.essential
             必須
         .account-page__content__form__input
           = f.password_field :password, autocomplete: "new-password", placeholder: "７文字以上の半角英数字", class: "account-page__content__form__input-field"
-        
+          - if @user.errors.any?
+            .errors_explanation
+              %ul
+                - @user.errors.full_messages_for(:password).each do |message|
+                  %li{style: "color:red"}
+                    = message
+
         .account-page__content__form__label
           = f.label "パスワード（確認用）"
           %span.essential
             必須
           .account-page__content__form__input
             = f.password_field :encrypted_password, autocomplete: "new-password", placeholder: "７文字以上の半角英数字", class: "account-page__content__form__input-field"
+            - if @user.errors.any?
+              .errors_explanation
+                %ul
+                  - @user.errors.full_messages_for(:encrypted_password).each do |message|
+                    %li{style: "color:red"}
+                      = message
             %p.account-page__content__form__input__message
               ※英字と数字の両方を含めて設定してください
 
@@ -52,7 +75,18 @@
         .account-page__content__form__input       
           = f.text_field :first_name, placeholder: '佐藤', class: "account-page__content__form__input-field__name"
           = f.text_field :last_name, placeholder: '太郎', class: "account-page__content__form__input-field__name"
-        
+          - if @user.errors.any?
+            .errors_explanation
+              %ul
+                - @user.errors.full_messages_for(:first_name).each do |message|
+                  %li{style: "color:red"}
+                    = message
+          - if @user.errors.any?
+            .errors_explanation
+              %ul
+                - @user.errors.full_messages_for(:last_name).each do |message|
+                  %li{style: "color:red"}
+                    = message                
         .account-page__content__form__label
           = f.label 'お名前カナ(全角)'
           %span.essential
@@ -60,15 +94,30 @@
         .account-page__content__form__input
           = f.text_field :first_name_kana, placeholder: 'サトウ', class: "account-page__content__form__input-field__name"
           = f.text_field :last_name_kana, placeholder: 'タロウ', class: "account-page__content__form__input-field__name" 
-        
-        
+          - if @user.errors.any?
+            .errors_explanation
+              %ul
+                - @user.errors.full_messages_for(:first_name_kana).each do |message|
+                  %li{style: "color:red"}
+                    = message
+          - if @user.errors.any?
+            .errors_explanation
+              %ul
+                - @user.errors.full_messages_for(:last_name_kana).each do |message|
+                  %li{style: "color:red"}
+                    = message
         .account-page__content__form__label
           = f.label '生年月日'
           %span.essential
             必須
         .account-page__content__form__input
           = f.date_select :birthday, {start_year: 2020, end_year: 1900, prompt: "--"} , {class: "account-page__content__form__input-field__birthday"}
-
+          - if @user.errors.any?
+            .errors_explanation
+              %ul
+                - @user.errors.full_messages_for(:birthday).each do |message|
+                  %li{style: "color:red"}
+                    = message
         %p.account-page__content__form__text
           ※本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
           .account-page__content__form__submit
