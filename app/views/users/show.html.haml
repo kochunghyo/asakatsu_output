@@ -20,10 +20,12 @@
           = image_tag output.images.first.src.url, class: "img"
         .myoutput__contents__list__text
           = output.text
-          
+        .myoutput__contents__list__return
+          = link_to "トップページへもどる", root_path, class: "myoutput__contents__list__return" 
+
         -if user_signed_in? && current_user.id == output.user_id
           .myoutput__contents__fix
             .myoutput__contents__fix__edit
             = link_to edit_user_registration_path, class: "myoutput__contents__fix__edit-btn" do
-              会員登録情報を修正する
+              会員登録情報を変更する        
   = render "footer"
