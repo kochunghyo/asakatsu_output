@@ -1,0 +1,15 @@
+.wrapper
+  .header
+    .header__main
+  .show_follower
+    .show_follower__lists
+      .show_follower__lists__title
+        =@user.nickname 
+        さんがフォローしている仲間
+      .show_follower__lists__list
+        - @user.following.each do |user|
+          .show_follower__lists__list__name
+            = link_to user.nickname, user_path(user), data: {"turbolinks" => false}
+      .show_follower__lists__return
+        = link_to "トップページへもどる", root_path, class: "show_follower__lists__return" 
+  = render 'footer'
