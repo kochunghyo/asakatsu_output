@@ -1,0 +1,26 @@
+- if user_signed_in? && @user.id != current_user.id
+  %button#follow_btn{user: @user.id}
+    - if current_user.following?(@user)
+      フォロー解除
+    - else
+      フォローする
+:javascript
+  $(()=>{
+    $(document).on('click','#follow_btn',()=>{
+      $.ajax({
+        url: '/relationships/follow',
+        data: {id: $('#follow_btn').attr('user')}
+      }).done((res)=>{
+        $('.follower').html(`
+          <div class="follower">
+          <a href="/users/${$('#follow_btn').attr('user')}/followers">フォロワー${res.count}人
+          </a></div>
+        `)
+        if(res.flag){
+          $('#follow_btn').text('フォロー解除')
+        } else {
+          $('#follow_btn').text('フォローする')
+        }
+      })
+    })  
+  })

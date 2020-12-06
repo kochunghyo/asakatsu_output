@@ -105,11 +105,11 @@
       .body__outputs__lists__list
         - @outputs.each do |output|
           %ul.body__outputs__lists__list__link
-            = link_to output_path(output.id), class: "body__outputs__lists__list__link" do
+            = link_to output_path(output.id), class: "body__outputs__lists__list__link", data: {"turbolinks" => false} do
               この投稿の詳細はこちら
               %li.body__outputs__lists__list__link__images
                 = image_tag output.images.first.src.url, class: "img"
               %li.body__outputs__lists__list__link__outputter
                 投稿者
-                = link_to "#{output.user.nickname}", user_path(output.user.id)
+                = link_to "#{output.user.nickname}", user_path(output.user.id), data: {"turbolinks" => false}
                 

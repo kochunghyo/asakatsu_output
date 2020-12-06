@@ -1,15 +1,26 @@
 class UsersController < ApplicationController
   
+  before_action :set_user, only: [:show, :following, :followers]
   
   def show
-    @user = User.find(params[:id])
     @outputs = @user.outputs
   end
 
 
-  # private
-  # def user_params
-  #   params.require(:user).permit(:nickname, :face_image, :first_name, :last_name, :first_name_kana, :last_name_kana, :email, :encrypted_password)
-  # end
+  def following
+    @users = @user.following
+    render 'show_following'
+  end
+
+  def followers
+    @users = @user.followers
+    render 'show_follower'
+  end
+
+  private
+
+  def set_user
+    @user = User.find(params[:id])
+  end
 
 end

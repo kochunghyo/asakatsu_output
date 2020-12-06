@@ -7,6 +7,13 @@
       .myoutput__outputter__name
         = @user.nickname
         さんのアウトプット一覧
+      .follower
+        = link_to "フォロワー#{@user.followers.count}人", followers_user_path(@user.id)
+      .follow
+        = link_to "フォロー中 #{@user.following.count}人" , following_user_path(@user.id) 
+        .follow__btn
+        = render "relationships/follow"
+        
     .myoutput__contents
       .myoutput__contents__list
       - @outputs.each do |output|

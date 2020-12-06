@@ -9,5 +9,14 @@ Rails.application.routes.draw do
       get 'like'
     end
   end
-  resources :users, only: [:show]
+  resources :users, only: :show do
+    member do
+      get :following, :followers
+    end
+  end
+  resources :relationships do
+    collection do
+      get 'follow'
+    end
+  end
 end

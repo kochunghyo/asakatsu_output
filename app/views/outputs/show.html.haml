@@ -35,8 +35,8 @@
             = form.submit "コメントする", class: "contents__box__comment__submit"
 
       %button#like-btn{action: like_output_url(params[:id])}
-        - if Like.find_by(user_id: current_user.id)
-          %i.like-icon.fas.fa-thumbs-up いいね!済
+        - if Like.find_by(user_id: current_user.id, output_id: params[:id])
+          %i.like-icon.fas.fa-thumbs-up いいね！
         - else
           %i.like-icon.far.fa-thumbs-up いいね！
         %span.like-num
@@ -63,14 +63,14 @@
         .contents__box__fix__center
           = link_to output_path(@output.id), method: :delete, class: "contents__box__fix__delete-btn" do
             投稿を削除する
-    :javascript
-      $(()=>{
-        $(document).on('click','#like-btn',()=>{
-          $.get({url:$('#like-btn').attr('action')}).done((res)=>{
-            $('.like-num').text(res.count)
-            $('.like-icon').toggleClass('fas')
-                          .toggleClass('far')
-          })
-        })
-      })
   = render "footer"
+:javascript
+  $(()=>{
+    $(document).on('click','#like-btn',()=>{
+      $.get({url:$('#like-btn').attr('action')}).done((res)=>{
+        $('.like-num').text(res.count)
+        $('.like-icon').toggleClass('fas')
+                       .toggleClass('far')
+      })
+    })
+  })

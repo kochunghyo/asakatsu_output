@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_27_123741) do
+ActiveRecord::Schema.define(version: 2020_12_04_063220) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(version: 2020_11_27_123741) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_controllers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_controllers_on_reset_password_token", unique: true
+  end
+
+  create_table "follows", force: :cascade do |t|
+    t.bigint "following_id"
+    t.bigint "followed_by_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["followed_by_id"], name: "index_follows_on_followed_by_id"
+    t.index ["following_id"], name: "index_follows_on_following_id"
   end
 
   create_table "images", force: :cascade do |t|
@@ -62,6 +71,14 @@ ActiveRecord::Schema.define(version: 2020_11_27_123741) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "following_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["follower_id", "following_id"], name: "index_relationships_on_follower_id_and_following_id", unique: true
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "first_name", null: false
@@ -81,6 +98,8 @@ ActiveRecord::Schema.define(version: 2020_11_27_123741) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "follows", "users", column: "followed_by_id"
+  add_foreign_key "follows", "users", column: "following_id"
   add_foreign_key "images", "outputs"
   add_foreign_key "likes", "outputs"
   add_foreign_key "likes", "users"
