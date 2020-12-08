@@ -1,8 +1,4 @@
 # README
-
-|Column|Type|options|
-|------|----|-------|
-https://gyazo.com/805f1511fa93e3f8e39b98d0bfe7fc53
 ## usersテーブル
 |Column|Type|options|
 |------|----|-------|
