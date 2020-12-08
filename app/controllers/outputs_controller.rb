@@ -1,7 +1,7 @@
 class OutputsController < ApplicationController
   
   before_action :set_output, only: [:show, :edit, :update, :destroy]
-  
+
   def index
     @outputs = Output.includes(:images).order("created_at DESC").limit(5)
   end
@@ -16,7 +16,7 @@ class OutputsController < ApplicationController
   end
 
   def create
-    unless(Time.now.hour < 4 || Time.now.hour >= 10)
+    unless(Time.zone.now.hour < 4 || Time.zone.now.hour >= 10)
       @output = Output.new(output_params)
       if @output.save
         redirect_to root_path, notice: '投稿が完了しました。'
