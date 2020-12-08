@@ -1,8 +1,6 @@
-
 **個人開発アプリ**
 AOA(Asakatsu Output Application)
 ----------
-
 |トップページ①|トップページ②|投稿ページ|投稿詳細ページ|
 |---|---|---|---|
 |![image](https://user-images.githubusercontent.com/68846376/101469430-196f6b80-3988-11eb-9ff3-62a0c5381a95.png)|![image](https://user-images.githubusercontent.com/68846376/101469679-66534200-3988-11eb-896a-4eee9f709347.png)|![image](https://user-images.githubusercontent.com/68846376/101469852-969ae080-3988-11eb-8366-27e77cb8f7cd.png)|![image](https://user-images.githubusercontent.com/68846376/101470303-2b054300-3989-11eb-9802-5f3df7921cf9.png)|
@@ -15,14 +13,13 @@ AOA(Asakatsu Output Application)
 **◎誰を（ターゲット）<br>**
 ----------
 **精神疾患のある方、睡眠不足に悩んでいる方、規則正しい生活を取り戻したい方、仕事のパフォーマンスを上げたい方、最近「楽しいことがない」方<br>**
-
+----------
 **◎どのような問題を解決するのか<br>**
 ----------
 **精神的に病んでいる方・最近、元気がない方の睡眠不足を解消し、毎日生きることのモチベーション回復する<br>**
-
+----------
 **◎背景（なぜこのアプリを開発しようと考えたのか）<br>**
 ----------
-
 **■精神疾患患者が年々増えている<br>**
 &emsp;平成29年時点で419.3万人（出典：厚生労働省)<br>
 **■うつ病の最大の原因は睡眠不足<br>**
@@ -52,10 +49,9 @@ AOA(Asakatsu Output Application)
 ●朝散歩・朝食、その他の朝活を頑張って頂くことで、体内時計をリセットし、夜に心地良い睡眠を促す。<br>
 ●「毎日朝4時から朝10まで」というタイムリミットを設定し、一定の緊張感を保ちながら、アウトプットを積み上げることを楽しんで頂く。<br> 
 ●「フォロー」機能、「いいね！」機能、コメント機能によって、孤独を解消し、仲間と支え合いながら、朝の習慣を身につける。<br>
-
+----------
 **機能一覧**
 ----------
-
 **1）ユーザー新規登録機能/ログイン機能(devise) <br>**
 &emsp;&emsp;新規登録時は個人情報も入力するが、アプリの性質上、匿名を希望するユーザーも想定されるので、、アプリ上ではニックネームで利用していただく。ログイン時はメールアドレスとパスワードを入力<br>
 **2）CRUD機能 <br>**
@@ -74,13 +70,11 @@ AOA(Asakatsu Output Application)
 &emsp;&emsp; 投稿詳細ページ一覧に投稿したユーザー名があり、そこから該当ユーザーのマイページへ遷移し、フォローしたい場合は「フォローする」をフォローを解除したい場合は「フォローを解除する」で解除できる<br>
 **9）テストの実施（model)<br>**
 &emsp;&emsp;RSpec、factory_bot使用<br>
- 
+---------- 
 **開発日数**
 ----------
 **作業期間　2020年11月14日　〜 2020年12月8日<br>**
 工数　25日/175時間 <br>
-
-
 **開発工程**
 ------------------------------
 ○ ER図及びデータベース設計<br>
@@ -91,8 +85,7 @@ AOA(Asakatsu Output Application)
 ○ 12月7日（月）〜12月8日（日）テスト及びデプロイ作業完了<br>
 ○ RSpecテスト（単体テスト）を実施<br>
 ○ インフラにHeroku使用<br>
-
-○ 開発twitter発信（後で使う）<br>
+○ 開発中にtwitter発信しながら、他の現役・駆け出しエンジニアと交流<br>
 
 **使用言語技術**
 --------------
@@ -106,10 +99,6 @@ AOA(Asakatsu Output Application)
 &emsp;&emsp;RSpec/factory_bot<br>
 インフラ<br>
 &emsp;&emsp;heroku/7.47.4 darwin-x64 node-v12.16.2<br>
-
-本番環境<br>
-&emsp;&emsp;  <br>
-&emsp;&emsp;  <br>
 
 使用Gem<br>
 haml-rails/font-awesome-sass/pry-rails/<br>
@@ -127,6 +116,7 @@ rspec-rails/factory_bot_rails<br><br>
 
 |![image](https://user-images.githubusercontent.com/68846376/101475006-28a5e780-398f-11eb-878c-b13f2d78c757.png)|
 
+# README
 
 ## usersテーブル
 |Column|Type|options|
