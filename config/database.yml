@@ -83,4 +83,6 @@ production:
   database: asakatsu_output_production
   username: asakatsu_output
   password: <%= ENV['ASAKATSU_OUTPUT_DATABASE_PASSWORD'] %>
-  
+  adapter: postgresql
+  encording: unicode
+  pool: 5
