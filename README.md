@@ -45,7 +45,7 @@ AOA(Asakatsu Output Application)
 &emsp;&emsp;朝食を食べることで、さらに脳の体内時計と体の体内時計のズレが補正される。<br>
 &emsp;&emsp;午後にやってもセロトニン効果は小さいので、できれば、午前10時までには完了させる。<br>
 &emsp;&emsp;体内時計がリセットされてから、１５〜16時間後にメラトニンが分泌され、眠気が出る。逆算すると、午前７時に体内時計をリセットすると、22時〜２３時に眠気が出る。<br>
-**■ただ人は一人でやると先延ばししてしまう生き物<br>
+**■ただ人は一人でやると先延ばししてしまう生き物<br>**
 &emsp;&emsp;そこで、朝活を周囲から評価されながらアウトプットするアプリがあれば、モチベーションも上がり、面白いだろうと思い開発に至った。<br>
 
 **このアプリでどのような体験を得られるか**
@@ -120,7 +120,7 @@ rspec-rails/factory_bot_rails<br><br>
 &emsp;&emsp;Gmail / kc19851226@gmail.com &emsp;&emsp;twitter / @kotsuWE
 
 **ER図**
-
+--------------
 |![image](https://user-images.githubusercontent.com/68846376/101475006-28a5e780-398f-11eb-878c-b13f2d78c757.png)|
 --------------
 # README
