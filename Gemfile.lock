@@ -92,6 +92,7 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.4.4)
+    dot_env (0.0.3)
     erubi (1.10.0)
     erubis (2.7.0)
     excon (0.78.0)
@@ -312,6 +313,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   carrierwave
   devise
+  dot_env
   factory_bot_rails
   fog-aws
   font-awesome-sass
