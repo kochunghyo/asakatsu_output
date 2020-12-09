@@ -16,17 +16,17 @@ class OutputsController < ApplicationController
   end
 
   def create
-    unless(Time.zone.now.hour < 4 || Time.zone.now.hour >= 10)
-      @output = Output.new(output_params)
-      if @output.save
-        redirect_to root_path, notice: '投稿が完了しました。'
-      else
-        @output.images.build
-        render :new
-      end
+    # unless(Time.zone.now.hour < 4 || Time.zone.now.hour >= 10)
+    @output = Output.new(output_params)
+    if @output.save
+      redirect_to root_path, notice: '投稿が完了しました。'
     else
-      redirect_to root_path, notice: "投稿は朝4時から朝10時までです。"
+      @output.images.build
+      render :new
     end
+    # else
+    # redirect_to root_path, notice: "投稿は朝4時から朝10時までです。"
+
   end
 
   def show
