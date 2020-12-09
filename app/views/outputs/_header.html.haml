@@ -16,3 +16,5 @@
             = link_to "ログインはこちら", new_user_session_path, class: "header__btn" 
           %li.header__main__list__confirm__registration
             = link_to "新規会員登録はこちら", new_user_registration_path, class: "header__btn"
+          %li.header__main__list__confirm__guest
+            = link_to 'ゲストログイン（閲覧用）', outputs_guest_sign_in_path, method: :post

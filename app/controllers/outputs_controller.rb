@@ -59,6 +59,20 @@ class OutputsController < ApplicationController
     end
   end
 
+  def new_guest
+    user = User.find_or_create_by!(email: 'test@test.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.nickname =("ゲスト")
+      user.first_name =("太郎")
+      user.last_name =("ゲスト")
+      user.first_name_kana =("タロウ")
+      user.last_name_kana =("ゲスト")
+      user.birthday =("1990-1-1")
+    end
+    sign_in user
+    redirect_to root_path, notuce: 'ゲストユーザーとしてログインしました。'
+  end
+
   private
     
   def output_params
