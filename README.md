@@ -5,7 +5,7 @@ AOA(Asakatsu Output Application)
 |---|---|---|---|
 |![image](https://user-images.githubusercontent.com/68846376/101469430-196f6b80-3988-11eb-9ff3-62a0c5381a95.png)|![image](https://user-images.githubusercontent.com/68846376/101469679-66534200-3988-11eb-896a-4eee9f709347.png)|![image](https://user-images.githubusercontent.com/68846376/101469852-969ae080-3988-11eb-8366-27e77cb8f7cd.png)|![image](https://user-images.githubusercontent.com/68846376/101470303-2b054300-3989-11eb-9802-5f3df7921cf9.png)|
 |マイページ|「いいね！機能」|「フォロー機能」|フォロワー一覧ページ|
-![image](https://user-images.githubusercontent.com/68846376/101470771-c5658680-3989-11eb-996a-91df68a83d3c.png)|![image](https://user-images.githubusercontent.com/68846376/101470979-0d84a900-398a-11eb-861b-0925b84fd0fc.png)|![image](https://user-images.githubusercontent.com/68846376/101705535-796e2b00-3aca-11eb-9bd7-9bd31119227a.png|![image](https://user-images.githubusercontent.com/68846376/101471416-9ef41b00-398a-11eb-9c78-fd3581e8744a.png)|
+![image](https://user-images.githubusercontent.com/68846376/101470771-c5658680-3989-11eb-996a-91df68a83d3c.png)|![image](https://user-images.githubusercontent.com/68846376/101470979-0d84a900-398a-11eb-861b-0925b84fd0fc.png)|![image](https://user-images.githubusercontent.com/68846376/101710995-fbb01c80-3ad5-11eb-8301-93dc1a7b220c.png)|![image](https://user-images.githubusercontent.com/68846376/101471416-9ef41b00-398a-11eb-9c78-fd3581e8744a.png)|
 
 **ログイン方法**
 ----------
