@@ -5,8 +5,12 @@ AOA(Asakatsu Output Application)
 |---|---|---|---|
 |![image](https://user-images.githubusercontent.com/68846376/101469430-196f6b80-3988-11eb-9ff3-62a0c5381a95.png)|![image](https://user-images.githubusercontent.com/68846376/101469679-66534200-3988-11eb-896a-4eee9f709347.png)|![image](https://user-images.githubusercontent.com/68846376/101469852-969ae080-3988-11eb-8366-27e77cb8f7cd.png)|![image](https://user-images.githubusercontent.com/68846376/101470303-2b054300-3989-11eb-9802-5f3df7921cf9.png)|
 |マイページ|「いいね！機能」|「フォロー機能」|フォロワー一覧ページ|
-![image](https://user-images.githubusercontent.com/68846376/101470771-c5658680-3989-11eb-996a-91df68a83d3c.png)|![image](https://user-images.githubusercontent.com/68846376/101470979-0d84a900-398a-11eb-861b-0925b84fd0fc.png)|![image](https://user-images.githubusercontent.com/68846376/101471157-4fadea80-398a-11eb-8a7c-8ba989e35e57.png)|![image](https://user-images.githubusercontent.com/68846376/101471416-9ef41b00-398a-11eb-9c78-fd3581e8744a.png)|
+![image](https://user-images.githubusercontent.com/68846376/101470771-c5658680-3989-11eb-996a-91df68a83d3c.png)|![image](https://user-images.githubusercontent.com/68846376/101470979-0d84a900-398a-11eb-861b-0925b84fd0fc.png)|![image](https://user-images.githubusercontent.com/68846376/101705535-796e2b00-3aca-11eb-9bd7-9bd31119227a.png|![image](https://user-images.githubusercontent.com/68846376/101471416-9ef41b00-398a-11eb-9c78-fd3581e8744a.png)|
 
+**ログイン方法**
+----------
+&emsp;&emsp;URL：https://asakatsu-output.herokuapp.com/<br>
+&emsp;&emsp;トップページ・ヘッダー部分の右端にある「ゲストログイン（閲覧用）」よりお入りください。<br>
 
 **アイデア(誰のどのような問題を解決したいのか）**
 ----------
@@ -83,7 +87,8 @@ AOA(Asakatsu Output Application)
 &emsp;&emsp; 投稿詳細ページ一覧に投稿したユーザー名があり、そこから該当ユーザーのマイページへ遷移し、フォローしたい場合は「フォローする」をフォローを解除したい場合は「フォローを解除する」で解除できる<br>
 **9）テストの実施（model)<br>**
 &emsp;&emsp;RSpec、factory_bot使用<br>
-
+**10）画像のAWS S3へのアップロード設定<br>**
+&emsp;&emsp;大容量の画像もできるようにS3を使用<br>
 
 **開発日数**
 ----------
@@ -120,7 +125,7 @@ AOA(Asakatsu Output Application)
 haml-rails/font-awesome-sass/pry-rails/<br>
 devise/rails-i18n/active_hash<br>
 carrierwave/mini_magick/jquery-rails<br>
-rspec-rails/factory_bot_rails<br><br>
+rspec-rails/factory_bot_rails/dot_env<br><br>
 
 
 連絡先
@@ -171,7 +176,7 @@ rspec-rails/factory_bot_rails<br><br>
 - belongs_to :user
 - belongs_to_active_hash :type
 - has_many :comments
-- has_many :likes
+- has_many :likes, dependent: :destroy
 
 ## imagesテーブル
 |Column|Type|options|
