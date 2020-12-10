@@ -176,7 +176,7 @@ rspec-rails/factory_bot_rails/dot_env<br><br>
 - belongs_to :user
 - belongs_to_active_hash :type
 - has_many :comments
-- has_many :likes
+- has_many :likes, dependent: :destroy
 
 ## imagesテーブル
 |Column|Type|options|
