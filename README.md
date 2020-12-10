@@ -8,8 +8,9 @@ AOA(Asakatsu Output Application)
 ![image](https://user-images.githubusercontent.com/68846376/101470771-c5658680-3989-11eb-996a-91df68a83d3c.png)|![image](https://user-images.githubusercontent.com/68846376/101470979-0d84a900-398a-11eb-861b-0925b84fd0fc.png)|![image](https://user-images.githubusercontent.com/68846376/101705535-796e2b00-3aca-11eb-9bd7-9bd31119227a.png|![image](https://user-images.githubusercontent.com/68846376/101471416-9ef41b00-398a-11eb-9c78-fd3581e8744a.png)|
 
 **ログイン方法**
-URL：https://asakatsu-output.herokuapp.com/
-トップページ・ヘッダー部分の右端にある「ゲストログイン（閲覧用）」よりお入りください。
+----------
+&emsp;&emsp;URL：https://asakatsu-output.herokuapp.com/<br>
+&emsp;&emsp;トップページ・ヘッダー部分の右端にある「ゲストログイン（閲覧用）」よりお入りください。<br>
 
 **アイデア(誰のどのような問題を解決したいのか）**
 ----------
