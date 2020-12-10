@@ -6,7 +6,7 @@ class Output < ApplicationRecord
   belongs_to :user
   belongs_to_active_hash :type
   has_many :comments
-  has_many :likes
+  has_many :likes, dependent: :destroy
   
   validates :title, presence: true
   validates :images, presence: true
