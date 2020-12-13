@@ -1,6 +1,7 @@
-class Type < ActiveHash::Base
+# frozen_string_literal: true
 
+class Type < ActiveHash::Base
   self.data = [
-    {id: 1, name: '朝散歩'}, {id: 2, name: '朝食'}, {id: 3, name: 'その他'}
+    { id: 1, name: '朝散歩' }, { id: 2, name: '朝食' }, { id: 3, name: 'その他' }
   ]
-end  
+end

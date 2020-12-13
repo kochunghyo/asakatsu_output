@@ -1,0 +1,20 @@
+AllCops:
+  Exclude:
+    - 'bin/*'
+    - 'db/**/*'
+    - 'node_modules/**/*'
+    - 'Gemfile'
+    - 'test/**/*'
+    - 'spec/**/*'
+
+Lint/ShadowingOuterLocalVariable:
+  Enabled: false
+
+Lint/UselessAssignment:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false

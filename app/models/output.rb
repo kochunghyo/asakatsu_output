@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Output < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
 
@@ -7,10 +9,9 @@ class Output < ApplicationRecord
   belongs_to_active_hash :type
   has_many :comments
   has_many :likes, dependent: :destroy
-  
+
   validates :title, presence: true
   validates :images, presence: true
   validates :text, presence: true
   validates :type_id, presence: true
 end
- 

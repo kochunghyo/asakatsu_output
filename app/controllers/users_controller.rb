@@ -1,11 +1,11 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
-  
-  before_action :set_user, only: [:show, :following, :followers]
-  
+  before_action :set_user, only: %i[show following followers]
+
   def show
     @outputs = @user.outputs
   end
-
 
   def following
     @users = @user.following
@@ -22,5 +22,4 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
-
 end

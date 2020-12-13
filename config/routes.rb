@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  devise_for :users, controllers: { 
-    registrations: 'users/registrations',
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
   }
 
   post '/outputs/guest_sign_in', to: 'outputs#new_guest'
@@ -9,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :outputs do
     resources :comments, only: :create
-    member do 
+    member do
       get 'like'
     end
   end
